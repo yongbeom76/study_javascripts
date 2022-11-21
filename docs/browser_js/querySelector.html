@@ -33,8 +33,14 @@
         console.log(element);
       });
 
-      console.log(`.list .item 각각 출력: `);
-      let items = document.querySelectorAll(".list .item");
+      console.log(`.list 출력: `);
+      let list = document.querySelectorAll(".list");
+      list.forEach((element) => {
+        console.log(element);
+      });
+
+      console.log(`.item 출력: `);
+      let items = document.querySelectorAll(".item");
       items.forEach((element) => {
         console.log(element);
       });
