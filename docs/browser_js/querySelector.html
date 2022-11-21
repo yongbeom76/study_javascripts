@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Selectors</h3>
+    <h3 id="selector">selector with id</h3>
+
+    <p id="title">DOM</p>
+    <button id="btn">Click Me</button>
+    <ul class="list">
+      <li class="item">Apple</li>
+      <li class="item">Azue</li>
+      <li class="item">Samsung</li>
+      <li class="item">IBM</li>
+    </ul>
+    <ul class="list">
+      <li class="item">banana</li>
+      <li class="item">berry</li>
+      <li class="item">melon</li>
+    </ul>
+
+    <a id="google" href="https://www.google.com">Google</a>
+
+    <script>
+      let bodyTags = document.querySelectorAll("body > *");
+      console.log(`body내 모든 형제 출력: `);
+      bodyTags.forEach((element) => {
+        console.log(element);
+      });
+
+      console.log(`.list .item 각각 출력: `);
+      let items = document.querySelectorAll(".list .item");
+      items.forEach((element) => {
+        console.log(element);
+      });
+    </script>
+  </body>
+</html>
