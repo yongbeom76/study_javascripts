@@ -27,5 +27,4 @@ let insert = ``;
 productsData.forEach((element, index) => {
   insert += `<div>title: ${element["title"]} weight: ${element["weight"]}</div>`;
 });
-console.log(insert);
 queryList.innerHTML = insert;
