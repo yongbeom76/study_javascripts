@@ -7,7 +7,26 @@
     <title>My title</title>
   </head>
   <body>
-    <a href="">My link</a>
+    <a href="" id="aTag">My link</a>
     <h1>My header</h1>
+
+    <div class="container">
+      <div class="inner first">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+      </div>
+      <div class="inner second">
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+      </div>
+    </div>
+
+    <script>
+      let queryId_a = document.querySelector("#aTag");
+      let query = document.querySelector(".container > .second .item");
+      console.log(query.nextElementSibling);
+    </script>
   </body>
 </html>
