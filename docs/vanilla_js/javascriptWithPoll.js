@@ -147,3 +147,5 @@ let prevButton = document.getElementById("prev_button");
 prevButton.addEventListener("click", init); // prev 버튼을 누르면 설문페이지로 돌아간다.
 let submitButton = document.getElementById("next_button");
 submitButton.addEventListener("click", result); //next 버튼을 누르면 결과페이지로 이동한다.
+
+// page별로 문항한개씩 쪼개기 전에 한페이지로 완성된 코드 완성판
