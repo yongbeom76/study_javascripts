@@ -65,25 +65,79 @@ const questions_answers = [
 // 1차 방식 : [Q1, Q2, Q3, Q4, Q5]
 // 2차 방식 : Array in Array [[Q1,E1,E2],[Q2,E1,E2,E3]...]
 // 3차 방식 : Object in Array [{questions_uid:Q1, answer_uids:[E1,E2], answer:Q2}]
-let polls = []; // 전체 묶음
+let polls = [];
 let question_compare;
-let questions = []; // 내부 묶음
+let questions = {}; // 내부 묶음
+let answer_uids = []; // 내부 설문 답변 묶음
 for (let idx = 0; idx < questions_answers.length; idx++) {
   if (question_compare != questions_answers[idx]["questions_uid"]) {
-    if (questions.length > 0) {
+    if (Object.keys(questions).length > 0) {
+      questions["answer_uids"] = answer_uids;
       polls.push(questions);
-      questions = [];
+      questions = {};
+      answer_uids = [];
     }
+
     // console.log(`!= : ${questions_answers[idx]["questions_uid"]}`);
     // console.log(`!= : ${questions_answers[idx]["answer_uid"]}`);
-    questions.push(questions_answers[idx]["questions_uid"]);
-    questions.push(questions_answers[idx]["answer_uid"]);
+    questions["questions_uid"] = questions_answers[idx]["questions_uid"];
+    answer_uids.push(questions_answers[idx]["answer_uid"]);
   } else {
     // console.log(`== : ${questions_answers[idx]["answer_uid"]}`);
-    questions.push(questions_answers[idx]["answer_uid"]);
+    answer_uids.push(questions_answers[idx]["answer_uid"]);
+    if (idx + 1 >= questions_answers.length) {
+      questions["answer_uids"] = answer_uids;
+      polls.push(questions);
+    }
   }
   question_compare = questions_answers[idx]["questions_uid"]; // 이전 uid 입력
 }
-polls.push(questions);
-questions = [];
+
+// console.log(`${polls}`);
+
+// 출력
+// [
+//     {questions_uid:Q1, answer_uids:[E1,E2], answer:Q2},
+//     {questions_uid:Q2, answer_uids:[E1,E2,E3]},
+//     ...
+// ]
+// polls[0]["questions_uid"];
+// polls[0]["answer_uids"][0];
+// polls[0]["answer_uids"][1];
+
+// polls[1]["questions_uid"];
+// polls[1]["answer_uids"][0];
+// polls[1]["answer_uids"][1];
+// polls[1]["answer_uids"][2];
+
+// 설문 문항을 가져오는 function
+// Q1. 해당 매장을 방문시 매장은 청결 하였습니까?
+// 1. E1
+// 2. E2
+// Q2. 주문시 직원은 고객님께 친절 하였습니까?
+// ...
+function getQuestionByUid(question_uid) {
+  // 질문항을 반환
+  let question_desc = "question not found"; // 매칭되는 값을 찾지 못할 경우라 가정하고 리턴값 초기화
+  for (let i = 0; i < questions_list.length; i++) {
+    // 배열을 돌면서 매칭되는 값을 찾는다.
+    if (questions_list[i]["questions_uid"] == question_uid) {
+      //매칭되는 값을 찾았을 경우
+      question_desc = questions_list[i]["question"]; // 리턴값을 설정해준다.
+    }
+  }
+  return question_desc; // 찾은 값을 리턴해준다.
+}
+
+let i = 0;
+for (poll of polls) {
+  i++;
+  //   console.log(`${poll["questions_uid"]}`); // == polls[idx]
+  console.log(`${i}. ${getQuestionByUid(poll["questions_uid"])}`);
+  let answer_uids = poll["answer_uids"];
+  answer_uids.forEach((answer_uid, index) => {
+    console.log(` ${index + 1}. ${answer_uid}`);
+  });
+}
+
 console.log();
