@@ -124,20 +124,75 @@ function getQuestionByUid(question_uid) {
     if (questions_list[i]["questions_uid"] == question_uid) {
       //매칭되는 값을 찾았을 경우
       question_desc = questions_list[i]["question"]; // 리턴값을 설정해준다.
+      break;
     }
   }
   return question_desc; // 찾은 값을 리턴해준다.
+}
+
+function getAnswerByUid(answer_uid) {
+  let answer_desc = "";
+  for (answer of answer_list) {
+    if (answer["answer_uid"] === answer_uid) {
+      answer_desc = answer["answer"];
+      break;
+    }
+  }
+  return answer_desc;
 }
 
 let i = 0;
 for (poll of polls) {
   i++;
   //   console.log(`${poll["questions_uid"]}`); // == polls[idx]
-  console.log(`${i}. ${getQuestionByUid(poll["questions_uid"])}`);
+  //   console.log(`${i}. ${getQuestionByUid(poll["questions_uid"])}`);
   let answer_uids = poll["answer_uids"];
   answer_uids.forEach((answer_uid, index) => {
-    console.log(` ${index + 1}. ${answer_uid}`);
+    // console.log(` ${index + 1}. ${getAnswerByUid(answer_uid)}`);
   });
+}
+let queryNext = document.querySelector("#next");
+queryNext.addEventListener("click", setPollContent);
+
+let queryPrev = document.querySelector("#prev");
+queryPrev.addEventListener("click", prevPollContent);
+
+function prevPollContent() {
+  if (index == 1) {
+    alert("첫번째 문항입니다.");
+    return;
+  }
+  index = index - 2;
+  setPollContent();
+}
+
+// Event handlers
+// Next 클릭 시 순서 있게 설문 표시
+// 대상 변수는 polls
+let index = 0;
+function setPollContent() {
+  if (index == questions_list.length) {
+    alert("더 이상 질문이 없습니다.");
+    return;
+  }
+  let queryContent = document.querySelector("#poll-contents");
+  //   polls[0]["questions_uid"]; // 설문 문항
+  //   polls[0]["answer_uids"]; // 설문 답항 묶음
+  // 1. 매장 상태가 좋은가요?
+  //  (1) 예
+  //  (2) 아니다.
+  //   console.log(getQuestionByUid(polls[index]["questions_uid"]));
+  let desc = `<div>${index + 1}. ${getQuestionByUid(
+    polls[index]["questions_uid"]
+  )}</div>`;
+  polls[index]["answer_uids"].forEach((answer_uid, index) => {
+    // console.log(` ${index + 1}. ${getAnswerByUid(answer_uid)}`);
+    desc += `<div><input type="radio">(${index + 1}) ${getAnswerByUid(
+      answer_uid
+    )}</div>`;
+  });
+  queryContent.innerHTML = desc;
+  index++;
 }
 
 console.log();
