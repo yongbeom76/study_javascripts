@@ -189,10 +189,11 @@ function setPollContent() {
     // console.log(` ${index + 1}. ${getAnswerByUid(answer_uid)}`);
     desc += `<div><input name="${polls[index]["questions_uid"]}" id="${
       polls[index]["questions_uid"]
-    }${polls[index]["answer_uids"][i]}" type="radio">
-    <label for="${polls[index]["questions_uid"]}${
-      polls[index]["answer_uids"][i]
-    }">(${i + 1}) ${getAnswerByUid(answer_uid)}</label></div>`;
+    }${polls[index]["answer_uids"][i]}" type="radio"><label for="${
+      polls[index]["questions_uid"]
+    }${polls[index]["answer_uids"][i]}">(${i + 1}) ${getAnswerByUid(
+      answer_uid
+    )}</label></div>`;
   });
   queryContent.innerHTML = desc;
   index++;
