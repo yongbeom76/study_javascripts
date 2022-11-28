@@ -1,13 +1,13 @@
-* {
-  /* border: 1px solid gray; */
-}
+/* * {
+  border: 1px solid gray;
+} */
 
 #img_wrap {
   display: flex;
   flex-direction: row;
 }
 #img_wrap > div {
-  margin: 10px;
+  margin: 5px;
   border: 1px solid black;
 }
 #img_wrap > div > div {
@@ -26,7 +26,7 @@
 #imgbox1,
 #imgbox2,
 #imgbox3 {
-  width: 33%;
+  width: 32%;
   text-align: center;
   font-size: 2rem;
 }
