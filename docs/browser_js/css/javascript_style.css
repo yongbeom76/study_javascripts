@@ -1,0 +1,32 @@
+* {
+  /* border: 1px solid gray; */
+}
+
+#img_wrap {
+  display: flex;
+  flex-direction: row;
+}
+#img_wrap > div {
+  margin: 10px;
+  border: 1px solid black;
+}
+#img_wrap > div > div {
+  margin: 10px;
+}
+#img_wrap button {
+  font-size: 2rem;
+  width: 80%;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 7px;
+  background-color: rgb(5, 168, 110);
+  border-width: 0;
+  color: white;
+}
+#imgbox1,
+#imgbox2,
+#imgbox3 {
+  width: 33%;
+  text-align: center;
+  font-size: 2rem;
+}
