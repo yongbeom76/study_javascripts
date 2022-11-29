@@ -21,6 +21,9 @@
   margin: 10px;
 }
 .list-item {
+  /* display: flex;
+  flex-direction: row;
+  justify-content: stretch; */
   border: 1px solid black;
 }
 
@@ -50,9 +53,17 @@
 .item-text {
   font-size: 20px;
   display: inline-block;
-  width: 70%;
 }
 
 .material-icons:hover {
   cursor: pointer;
+}
+
+.heart-icon {
+  color: orange;
+  float: right;
+}
+.delete-icon {
+  color: red;
+  float: right;
 }
