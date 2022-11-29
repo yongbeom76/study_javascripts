@@ -1,0 +1,55 @@
+* {
+  /* border: 1px solid black; */
+}
+#title {
+  background-color: purple;
+  font-size: xx-large;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+#input-button-wrapper {
+  margin: 10px;
+  font-size: x-large;
+}
+
+#list {
+  margin: 10px;
+}
+.list-item {
+  border: 1px solid black;
+}
+
+#input-text {
+  color: gray;
+  width: 70%;
+  font-size: 20px;
+  padding: 1rem 0.5rem;
+  border-radius: 0.5rem;
+}
+#add-button {
+  width: 10%;
+  min-width: 76px;
+  background-color: purple;
+  font-size: 20px;
+  color: white;
+  padding: 1rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.list-item {
+  padding: 10px 5px;
+  border-radius: 0.5rem;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.item-text {
+  font-size: 20px;
+  display: inline-block;
+  width: 70%;
+}
+
+.material-icons:hover {
+  cursor: pointer;
+}
