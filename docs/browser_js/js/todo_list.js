@@ -30,15 +30,6 @@ list.addEventListener("click", (event) => {
   console.log(event.target.className);
 });
 
-// input 태그 클릭하면 기존 글자를 지우고 font-color를 black으로 변경
-let inputTag = document.getElementById("input-text");
-inputTag.addEventListener("click", (event) => {
-  console.log(event);
-  console.log(event.target);
-  event.target.value = ""; // input tag 클릭시 빈칸으로 만들어준다.
-  event.target.style.color = "black";
-});
-
 // Add 버튼 누르면 입력내용을 추가해준다.
 let newItem = `<div class="list-item">
                     <div class="item-text">장보기</div>
