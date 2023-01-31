@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.slim.js" integrity="sha256-DKU1CmJ8kBuEwumaLuh9Tl/6ZB6jzGOBV/5YpNE2BWc=" crossorigin="anonymous"></script>
+</head>
+
+
+
+<body>
+    <h3>Adds</h3>
+    <div id="div_adds">Append line Text</div>
+
+    <ol id="ol_adds">
+        <li>item first</li>
+        <li>item second</li>
+        <li>item third</li>
+    </ol>
+
+    <button id="btn_before_html">Before html</button>
+    <button id="btn_after_html">After html</button>
+
+    <button id="btn_prepend_html">Prepend html</button>
+
+    <button id="btn_append_text">Append text</button>
+    <button id="btn_append_html">Append html</button>
+    <script>
+        // $(document).ready(function(){
+        $(function(){
+            $('#btn_before_html').click(function(){
+                $('#ol_adds').before('<div>before div</div>');
+            });
+            $('#btn_after_html').click(function(){
+                $('#ol_adds').after('<div>after div</div>');
+            });
+            // prepend
+            $('#btn_prepend_html').click(function(){
+                $('#ol_adds').prepend('<li>prepend item</li>');
+            });
+            // append
+            $('#btn_append_text').click(function(){
+                $('#div_adds').append(' with AppendText');
+            });
+            $('#btn_append_html').click(function(){
+                $('#ol_adds').append('<li>append item</li>');
+            });
+        });
+    </script>
+</body>
+</html>
